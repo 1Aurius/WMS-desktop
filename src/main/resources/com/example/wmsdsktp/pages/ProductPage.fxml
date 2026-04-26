@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.wmsdsktp.Controllers.ProdutosPageController"
+      spacing="12" styleClass="card">
+
+    <padding>
+        <Insets top="16" right="16" bottom="16" left="16"/>
+    </padding>
+
+    <VBox spacing="4">
+        <Label text="Products" styleClass="title"/>
+        <Label text="Manage all products" styleClass="subtitle"/>
+    </VBox>
+
+    <HBox spacing="8">
+        <TextField fx:id="queryField" promptText="Search name or serial code"/>
+        <Button text="Apply" onAction="#onApplyFilters"/>
+        <Button text="Clear" onAction="#onClearFilters"/>
+        <Button text="New Product" onAction="#openCreateNewProductModal"/>
+    </HBox>
+
+    <Label fx:id="resultCountLabel" text="0 result(s)" styleClass="field-label"/>
+
+    <TableView fx:id="productsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idCol" text="Id" prefWidth="60"/>
+            <TableColumn fx:id="nomeCol" text="Name" prefWidth="220"/>
+            <TableColumn fx:id="serialCodeCol" text="Serial Code" prefWidth="180"/>
+            <TableColumn fx:id="unidadeCol" text="Unit" prefWidth="90"/>
+            <TableColumn fx:id="precoCol" text="Price" prefWidth="100"/>
+            <TableColumn fx:id="aproxVolumeCol" text="Approx. Volume" prefWidth="140"/>
+        </columns>
+    </TableView>
+</VBox>

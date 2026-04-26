@@ -1,4 +1,4 @@
-package com.example.wmsdsktp;
+package com.example.wmsdsktp.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

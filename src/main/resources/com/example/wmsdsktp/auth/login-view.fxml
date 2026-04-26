@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.example.wmsdsktp.Controllers.LoginController"
+           styleClass="page">
+
+    <VBox styleClass="card" maxWidth="380" spacing="0" alignment="CENTER" VBox.vgrow="NEVER">
+
+        <Label text="Welcome back" styleClass="title"/>
+        <Label text="Sign in to Hermes Logistics" styleClass="subtitle"/>
+
+        <Label text="Username" styleClass="field-label"/>
+        <HBox styleClass="input-group">
+            <Label text="✉" styleClass="input-icon"/>
+            <TextField fx:id="usernameField" promptText="your name.."
+                       styleClass="input-field" HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <Label text="Password" styleClass="field-label"/>
+        <HBox styleClass="input-group">
+            <Label text="🔒" styleClass="input-icon"/>
+            <PasswordField fx:id="passwordField" promptText="••••••••"
+                           styleClass="input-field" HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <HBox styleClass="row">
+            <CheckBox fx:id="rememberMe" text="Remember me"
+                      styleClass="remember" HBox.hgrow="ALWAYS"/>
+            <Label text="Forgot password?" styleClass="forgot"/>
+        </HBox>
+
+        <Label fx:id="errorLabel" styleClass="error-label"/>
+
+        <Button text="Sign In →" onAction="#onLoginButtonClick"
+                styleClass="btn-primary" maxWidth="Infinity"/>
+
+        <HBox alignment="CENTER" spacing="4">
+            <Label text="Don't have an account?" styleClass="signup-text"/>
+            <Label text="Sign up" styleClass="signup-link" onMouseClicked="#onRegisterButtonClick"/>
+        </HBox>
+
+    </VBox>
+</StackPane>

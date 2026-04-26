@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.wmsdsktp.Controllers.DashboardOverviewController"
+            fitToWidth="true" styleClass="page">
+
+    <VBox styleClass="card" spacing="24">
+
+        <!-- Page Header -->
+        <VBox spacing="4">
+            <Label text="Dashboard" styleClass="title"/>
+            <Label text="Welcome back! Here's what's happening today." styleClass="subtitle"/>
+        </VBox>
+
+        <!-- Stats Grid -->
+        <GridPane hgap="16" vgap="16">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+            </columnConstraints>
+
+            <!-- Active Routes -->
+            <VBox styleClass="card" GridPane.columnIndex="0" spacing="8">
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="⬡" styleClass="input-icon" HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="activeRoutesTrend" text="+12%" styleClass="trend-up"/>
+                </HBox>
+                <Label fx:id="activeRoutesValue" text="24" styleClass="title"/>
+                <Label text="Active Routes" styleClass="subtitle"/>
+            </VBox>
+
+            <!-- Total Shipments -->
+            <VBox styleClass="card" GridPane.columnIndex="1" spacing="8">
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="◫" styleClass="input-icon" HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="shipmentsTrend" text="+8%" styleClass="trend-up"/>
+                </HBox>
+                <Label fx:id="shipmentsValue" text="1,247" styleClass="title"/>
+                <Label text="Total Shipments" styleClass="subtitle"/>
+            </VBox>
+
+            <!-- In Transit -->
+            <VBox styleClass="card" GridPane.columnIndex="2" spacing="8">
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="◷" styleClass="input-icon" HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="transitTrend" text="-3%" styleClass="trend-down"/>
+                </HBox>
+                <Label fx:id="transitValue" text="156" styleClass="title"/>
+                <Label text="In Transit" styleClass="subtitle"/>
+            </VBox>
+
+            <!-- Pending Requisitions -->
+            <VBox styleClass="card" GridPane.columnIndex="3" spacing="8">
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="↑" styleClass="input-icon" HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="requisitionsTrend" text="+5%" styleClass="trend-up"/>
+                </HBox>
+                <Label fx:id="requisitionsValue" text="32" styleClass="title"/>
+                <Label text="Pending Requisitions" styleClass="subtitle"/>
+            </VBox>
+        </GridPane>
+
+        <!-- Bottom Grid: Requisitions + Routes -->
+        <HBox spacing="16">
+
+            <!-- Recent Requisitions -->
+            <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="16">
+                <Label text="Recent Requisitions" styleClass="field-label"/>
+                <VBox fx:id="requisitionsList" spacing="4"/>
+            </VBox>
+
+            <!-- Active Routes -->
+            <VBox styleClass="card" HBox.hgrow="ALWAYS" spacing="16">
+                <Label text="Active Routes" styleClass="field-label"/>
+                <VBox fx:id="routesList" spacing="12"/>
+            </VBox>
+
+        </HBox>
+
+    </VBox>
+</ScrollPane>

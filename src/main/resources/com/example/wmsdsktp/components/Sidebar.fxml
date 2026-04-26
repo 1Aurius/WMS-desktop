@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.wmsdsktp.Controllers.SidebarController"
+      styleClass="sidebar" spacing="0">
+
+    <!-- Logo -->
+    <VBox styleClass="sidebar-logo" alignment="CENTER_LEFT">
+        <Label text="⬡" styleClass="logo-icon"/>
+        <Label text="Hermes" styleClass="logo-text"/>
+        <Label text="Logistics" styleClass="logo-subtext"/>
+    </VBox>
+
+    <!-- Nav Items -->
+    <ScrollPane VBox.vgrow="ALWAYS" styleClass="sidebar-scroll" fitToWidth="true">
+        <VBox styleClass="nav-section" spacing="2">
+
+            <Label text="OVERVIEW" styleClass="nav-section-label"/>
+            <Button fx:id="navDashboard" text="Dashboard" styleClass="nav-btn nav-active"
+                    onAction="#onNavigate" userData="dashboard">
+                <graphic><Label text="⊞" styleClass="nav-icon"/></graphic>
+            </Button>
+
+            <Label text="GESTÃO" styleClass="nav-section-label"/>
+            <Button fx:id="navStock" text="Stock" styleClass="nav-btn"
+                    onAction="#onNavigate" userData="stock">
+                <graphic><Label text="📦" styleClass="nav-icon"/></graphic>
+            </Button>
+            <Button fx:id="navProduct" text="Produtos" styleClass="nav-btn"
+                    onAction="#onNavigate" userData="product">
+                <graphic><Label text="🏷" styleClass="nav-icon"/></graphic>
+            </Button>
+
+            <Button fx:id="navProdutos" text="Produtos" styleClass="nav-btn"
+                    onAction="#onNavigate" userData="requesicao">
+                <graphic><Label text="🏷" styleClass="nav-icon"/></graphic>
+            </Button>
+
+            <Button fx:id="navRequesicao" text="Requesições" styleClass="nav-btn"
+                    onAction="#onNavigate" userData="requesicao">
+                <graphic><Label text="🏷" styleClass="nav-icon"/></graphic>
+            </Button>
+
+            <Label text="ADMINISTRAÇÃO" styleClass="nav-section-label"/>
+            <Button fx:id="navUtilizadores" text="Utilizadores" styleClass="nav-btn"
+                    onAction="#onNavigate" userData="utilizadores">
+                <graphic><Label text="👤" styleClass="nav-icon"/></graphic>
+            </Button>
+
+
+        </VBox>
+    </ScrollPane>
+
+    <!-- Footer -->
+    <VBox styleClass="sidebar-footer">
+        <Button fx:id="navSettings" text="Settings" styleClass="nav-btn"
+                onAction="#onNavigate" userData="settings">
+            <graphic><Label text="⚙" styleClass="nav-icon"/></graphic>
+        </Button>
+        <Button fx:id="btnLogout" text="Logout" styleClass="nav-btn"
+                onAction="#onLogout">
+            <graphic><Label text="⇥" styleClass="nav-icon"/></graphic>
+        </Button>
+    </VBox>
+
+</VBox>

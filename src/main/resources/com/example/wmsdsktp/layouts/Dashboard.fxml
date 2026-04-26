@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.wmsdsktp.Controllers.BaseDashboardController"
+      styleClass="app-root">
+    <fx:include source="../components/Sidebar.fxml" fx:id="sidebar"/>
+
+    <!-- Main Content -->
+    <VBox HBox.hgrow="ALWAYS" styleClass="main-content">
+
+        <!-- Header -->
+        <HBox styleClass="header" alignment="CENTER_LEFT">
+            <HBox HBox.hgrow="ALWAYS" alignment="CENTER_LEFT" spacing="12">
+                <HBox styleClass="search-box" alignment="CENTER_LEFT" spacing="8">
+                    <Label text="⌕" styleClass="search-icon"/>
+                    <TextField fx:id="searchField" promptText="Search..."
+                               styleClass="search-input" HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </HBox>
+            <HBox>
+                <Label fx:id="roleLabel" />
+                <Label fx:id="usernameLabel" styleClass="header-username"/>
+            </HBox>
+            <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button styleClass="icon-btn" fx:id="notifBtn">
+                    <graphic>
+                        <Label text="🔔" styleClass="header-icon"/>
+                    </graphic>
+                </Button>
+                <Button styleClass="icon-btn" fx:id="profileBtn">
+                    <graphic>
+                        <Label text="👤" styleClass="header-icon"/>
+                    </graphic>
+                </Button>
+                <Button styleClass="icon-btn" fx:id="logoutBtn" onAction="#onLogout">
+                    <graphic>
+                        <Label text="⎋" styleClass="header-icon"/>
+                    </graphic>
+                </Button>
+            </HBox>
+        </HBox>
+
+        <!-- Page Content -->
+        <StackPane fx:id="pageContent" VBox.vgrow="ALWAYS" styleClass="page-area">
+            <fx:include source="../pages/DashboardOverview.fxml" fx:id="dashboardOverview"/>
+        </StackPane>
+
+    </VBox>
+</HBox>

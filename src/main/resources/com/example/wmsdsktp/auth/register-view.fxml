@@ -7,14 +7,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.DatePicker?>
 
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.wmsdsktp.LoginController">
+      fx:controller="com.example.wmsdsktp.Controllers.RegisterController">
     <padding>
         <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>
     </padding>
 
-    <Label text="Login">
+    <Label text="Register">
         <font>
             <Font name="System Bold" size="24.0"/>
         </font>
@@ -26,18 +27,33 @@
     </VBox>
 
     <VBox spacing="10.0">
+        <Label text="Email:"/>
+        <TextField fx:id="emailField" promptText="Enter email"/>
+    </VBox>
+
+    <VBox spacing="10.0">
+        <Label text="Date of birth:"/>
+        <DatePicker fx:id="dnField"  promptText="Enter date of birth"/>
+    </VBox>
+
+    <VBox spacing="10.0">
         <Label text="Password:"/>
         <PasswordField fx:id="passwordField" promptText="Enter password"/>
     </VBox>
 
-    <Button fx:id="loginButton" text="Login" onAction="#onLoginButtonClick" defaultButton="true"
+    <VBox spacing="10.0">
+        <Label text="Confirm Password:"/>
+        <PasswordField fx:id="confirmPasswordField" promptText="Confirm password"/>
+    </VBox>
+
+    <Button fx:id="registerButton" text="Register" onAction="#onRegisterButtonClick" defaultButton="true"
             maxWidth="Infinity">
         <font>
             <Font size="14.0"/>
         </font>
     </Button>
 
-    <Button fx:id="registerButton" text="Create Account" onAction="#onRegisterButtonClick"
+    <Button fx:id="backToLoginButton" text="Back to Login" onAction="#onBackToLoginButtonClick"
             maxWidth="Infinity" style="-fx-background-color: transparent; -fx-text-fill: #0066cc;">
         <font>
             <Font size="12.0"/>

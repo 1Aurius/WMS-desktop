@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.wmsdsktp.Controllers.RequisicaoPageController"
+      spacing="12" styleClass="card">
+
+    <padding>
+        <Insets top="16" right="16" bottom="16" left="16"/>
+    </padding>
+
+    <VBox spacing="4">
+        <Label text="Requisições" styleClass="title"/>
+        <Label text="Gerir pedidos de transferência de stock" styleClass="subtitle"/>
+    </VBox>
+
+    <HBox spacing="8">
+        <Button text="Nova Requisição" onAction="#openCreateModal"/>
+    </HBox>
+
+    <Label fx:id="resultCountLabel" text="0 resultado(s)" styleClass="field-label"/>
+
+    <TableView fx:id="requisicaoTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idCol" text="Id" prefWidth="60"/>
+            <TableColumn fx:id="requesicaoStockIdCol" text="Requisição Stock Id" prefWidth="150"/>
+            <TableColumn fx:id="stockIdCol" text="Stock Id" prefWidth="100"/>
+            <TableColumn fx:id="productNameCol" text="Produto" prefWidth="200"/>
+            <TableColumn fx:id="postoDesignacaoCol" text="Posto" prefWidth="200"/>
+            <TableColumn fx:id="quantCol" text="Quantidade" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>

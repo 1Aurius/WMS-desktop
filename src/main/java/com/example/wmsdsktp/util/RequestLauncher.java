@@ -1,6 +1,6 @@
 package com.example.wmsdsktp.util;
 
-import javafx.concurrent.Task;
+import com.example.wmsdsktp.auth.UserSession;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -9,59 +9,51 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 
 public class RequestLauncher {
-    public static final String BASE_URL = "http://localhost:8080/api/";
+    public static final String BASE_URL = "http://localhost:18081/api/";
 
-    public static HttpResponse newRequest(String url,String Method,String json){
-        try{
+    public static HttpResponse<String> newRequest(String url, String method, String json) {
+        try {
             HttpRequest request;
-            if(Method.equals("POST")){
-                 request = HttpRequest.newBuilder()
+
+            switch (method.toUpperCase()) {
+                case "POST" -> request = HttpRequest.newBuilder()
                         .uri(URI.create(BASE_URL + url))
                         .header("Content-Type", "application/json")
+                        .header("Authorization", "Bearer " + UserSession.getInstance().getToken())
                         .POST(HttpRequest.BodyPublishers.ofString(json, StandardCharsets.UTF_8))
                         .build();
-            }else if (Method.equals("GET")){
-                 request = HttpRequest.newBuilder()
+
+                case "GET" -> request = HttpRequest.newBuilder()
                         .uri(URI.create(BASE_URL + url))
                         .header("Content-Type", "application/json")
+                        .header("Authorization", "Bearer " + UserSession.getInstance().getToken())
                         .GET()
                         .build();
-            } else {
-                request = null;
+
+                case "DELETE" -> request = HttpRequest.newBuilder()
+                        .uri(URI.create(BASE_URL + url))
+                        .header("Content-Type", "application/json")
+                        .header("Authorization", "Bearer " + UserSession.getInstance().getToken())
+                        .DELETE()
+                        .build();
+
+                case "PUT" -> request = HttpRequest.newBuilder()
+                        .uri(URI.create(BASE_URL + url))
+                        .header("Content-Type", "application/json")
+                        .header("Authorization", "Bearer " + UserSession.getInstance().getToken())
+                        .PUT(HttpRequest.BodyPublishers.ofString(json, StandardCharsets.UTF_8))
+                        .build();
+
+                default -> throw new Exception("Method not supported: " + method);
             }
-
-            if(request == null) throw new Exception("Method not supported");
-
-
-            Task<HttpResponse<String>> task = new Task<HttpResponse<String>>() {
-                @Override
-                protected HttpResponse<String> call() throws Exception {
-                    HttpClient client = HttpClient.newHttpClient();
-                    return client.send(request, HttpResponse.BodyHandlers.ofString());
-                }
-            };
-
-
-            task.setOnSucceeded(e -> {
-                HttpResponse<String> response = task.getValue();
-                if (response.statusCode() == 200) {
-                    System.out.println("[SUCESS] on request:"+url + " response: " + response.body());
-                }
-            });
-
-            task.setOnFailed(e -> {
-                System.out.println("[FAILED] on request:"+url);
-            });
 
             HttpClient client = HttpClient.newHttpClient();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-            if (response != null) {
-                System.out.println("[SUCCESS] on request:" + url + " response: " + response.body());
-            }
+            System.out.println("Token: " + UserSession.getInstance().getToken());
+            System.out.println("[SUCCESS] on request:" + url + " | status: " + response.statusCode());
             return response;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

@@ -7,13 +7,15 @@ public class UserSession {
 
     private Long id;
     private String nome;
-    private String password;
     private Date dn;
     private boolean isAdmin;
     private boolean isGestorRotas;
     private boolean isGestor;
     private boolean isLoja;
     private boolean isArmazem;
+    private String token;
+
+
 
     private UserSession() {}
 
@@ -28,16 +30,20 @@ public class UserSession {
         user = null; // clears the session
     }
 
-    public UserSession(Long id, String nome, String password, Date dn, boolean isAdmin, boolean isGestorRotas, boolean isGestor, boolean isLoja, boolean isArmazem) {
+    public static void login() {
+        user = new UserSession();
+    }
+
+    public UserSession(Long id, String nome, Date dn, boolean isAdmin, boolean isGestorRotas, boolean isGestor, boolean isLoja, boolean isArmazem, String token) {
         this.id = id;
         this.nome = nome;
-        this.password = password;
         this.dn = dn;
         this.isAdmin = isAdmin;
         this.isGestorRotas = isGestorRotas;
         this.isGestor = isGestor;
         this.isLoja = isLoja;
         this.isArmazem = isArmazem;
+        this.token = token;
     }
 
     public static UserSession getUser() {
@@ -47,6 +53,10 @@ public class UserSession {
     public static void setUser(UserSession user) {
         UserSession.user = user;
     }
+
+    public String getToken() {return token;}
+
+    public void setToken(String token) {this.token = token;}
 
     public Long getId() {
         return id;
@@ -62,14 +72,6 @@ public class UserSession {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public Date getDn() {
