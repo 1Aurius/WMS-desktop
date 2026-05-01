@@ -78,14 +78,15 @@ public class ProdutosPageController {
     private void openCreateNewProductModal() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/wmsdsktp/forms/create-produto-modal.fxml"));
+
             Parent root = loader.load();
 
             Stage modal = new Stage();
             modal.initModality(Modality.APPLICATION_MODAL);
             modal.setTitle("New Product");
             modal.setScene(new Scene(root));
-            modal.showAndWait();
 
+            modal.showAndWait();
             loadProdutos(null);
         } catch (Exception e) {
             e.printStackTrace();

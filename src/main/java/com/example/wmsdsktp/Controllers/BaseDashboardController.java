@@ -24,8 +24,6 @@ public class BaseDashboardController {
     @FXML
     public void initialize() {
         instance = this;
-        usernameLabel.setText(UserSession.getInstance().getNome());
-        roleLabel.setText(UserSession.getInstance().getToken());
     }
 
     public void loadPage(String fxmlPath) {

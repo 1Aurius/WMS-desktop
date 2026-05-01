@@ -8,8 +8,11 @@
 
     <!-- Logo -->
     <VBox styleClass="sidebar-logo" alignment="CENTER_LEFT">
-        <Label text="⬡" styleClass="logo-icon"/>
-        <Label text="Hermes" styleClass="logo-text"/>
+        <HBox>
+            <Label text="⬡" styleClass="logo-icon"/>
+            <Label text="Hermes" styleClass="logo-text"/>
+        </HBox>
+
         <Label text="Logistics" styleClass="logo-subtext"/>
     </VBox>
 
@@ -18,34 +21,31 @@
         <VBox styleClass="nav-section" spacing="2">
 
             <Label text="OVERVIEW" styleClass="nav-section-label"/>
-            <Button fx:id="navDashboard" text="Dashboard" styleClass="nav-btn nav-active"
+            <Button fx:id="navDashboard" text="Dashboard" styleClass="nav-btn"
                     onAction="#onNavigate" userData="dashboard">
                 <graphic><Label text="⊞" styleClass="nav-icon"/></graphic>
             </Button>
 
-            <Label text="GESTÃO" styleClass="nav-section-label"/>
+            <Label text="Resource Management" styleClass="nav-section-label"/>
+
             <Button fx:id="navStock" text="Stock" styleClass="nav-btn"
                     onAction="#onNavigate" userData="stock">
                 <graphic><Label text="📦" styleClass="nav-icon"/></graphic>
             </Button>
-            <Button fx:id="navProduct" text="Produtos" styleClass="nav-btn"
+
+            <Button fx:id="navProduct" text="Products" styleClass="nav-btn"
                     onAction="#onNavigate" userData="product">
                 <graphic><Label text="🏷" styleClass="nav-icon"/></graphic>
             </Button>
 
-            <Button fx:id="navProdutos" text="Produtos" styleClass="nav-btn"
-                    onAction="#onNavigate" userData="requesicao">
+            <Button fx:id="navRequisitions" text="Stock Requisitions" styleClass="nav-btn"
+                    onAction="#onNavigate" userData="requisition">
                 <graphic><Label text="🏷" styleClass="nav-icon"/></graphic>
             </Button>
 
-            <Button fx:id="navRequesicao" text="Requesições" styleClass="nav-btn"
-                    onAction="#onNavigate" userData="requesicao">
-                <graphic><Label text="🏷" styleClass="nav-icon"/></graphic>
-            </Button>
-
-            <Label text="ADMINISTRAÇÃO" styleClass="nav-section-label"/>
-            <Button fx:id="navUtilizadores" text="Utilizadores" styleClass="nav-btn"
-                    onAction="#onNavigate" userData="utilizadores">
+            <Label text="User Management" styleClass="nav-section-label"/>
+            <Button fx:id="navUsers" text="Users" styleClass="nav-btn"
+                    onAction="#onNavigate" userData="users">
                 <graphic><Label text="👤" styleClass="nav-icon"/></graphic>
             </Button>
 

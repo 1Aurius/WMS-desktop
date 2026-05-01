@@ -20,10 +20,6 @@
                                styleClass="search-input" HBox.hgrow="ALWAYS"/>
                 </HBox>
             </HBox>
-            <HBox>
-                <Label fx:id="roleLabel" />
-                <Label fx:id="usernameLabel" styleClass="header-username"/>
-            </HBox>
             <HBox spacing="8" alignment="CENTER_RIGHT">
                 <Button styleClass="icon-btn" fx:id="notifBtn">
                     <graphic>

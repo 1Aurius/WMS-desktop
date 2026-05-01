@@ -34,6 +34,13 @@ public class LoginController {
     private Button registerButton;
 
     @FXML
+    public void initialize(){
+        // [DEBUG]
+        usernameField.setText("admin");
+        passwordField.setText("admin123");
+    }
+
+    @FXML
     protected void onLoginButtonClick(ActionEvent event) {
         String username = usernameField.getText() == null ? "" : usernameField.getText().trim();
         String password = passwordField.getText() == null ? "" : passwordField.getText();

@@ -1,0 +1,199 @@
+/* =========================================================
+   dark-table.css  –  JavaFX Inventory Table Stylesheet
+   ========================================================= */
+
+/* ── Root palette ── */
+.root {
+    -fx-base:             #111010;
+    -fx-background:       #111010;
+    -fx-control-inner-background: #1f1f1f;
+
+    /* custom tokens */
+    -col-bg:              #1c1c1c;
+    -col-row-odd:         #1c1c1c;
+    -col-row-even:        #212121;
+    -col-border:          #2e2e2e;
+    -col-header-text:     #9a9a9a;
+    -col-primary-text:    #e8e8e8;
+    -col-secondary-text:  #6a6a6a;
+    -col-accent:          #4a9eff;
+    -col-hover:           #272727;
+    -col-selected:        #2a3a50;
+    -col-selected-text:   #e8e8e8;
+
+    -fx-font-family:      "Segoe UI", "SF Pro Text", "Helvetica Neue", sans-serif;
+    -fx-font-size:        13px;
+}
+
+/* ── TableView container ── */
+.table-view {
+    -fx-background-color:  -col-bg;
+    -fx-border-color:      -col-border;
+    -fx-border-width:      1px;
+    -fx-border-radius:     8px;
+    -fx-background-radius: 8px;
+    -fx-padding:           0;
+    -fx-table-cell-border-color: transparent;
+}
+
+/* remove default focus ring */
+.table-view:focused {
+    -fx-background-insets: 0;
+    -fx-background-color:  -col-bg;
+}
+
+/* ── Column headers ── */
+.table-view .column-header-background {
+    -fx-background-color: #161616;
+    -fx-border-color:     transparent transparent -col-border transparent;
+    -fx-border-width:     0 0 1px 0;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-padding:          0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color:     transparent;
+    -fx-size:             44px;
+    -fx-padding:          0 16px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill:    -col-header-text;
+    -fx-font-size:    11.5px;
+    -fx-font-weight:  normal;
+    -fx-alignment:    CENTER_LEFT;
+    -fx-letter-spacing: 0.03em;
+}
+
+/* hide the tiny separator between columns */
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+/* ── Row cells ── */
+.table-row-cell {
+    -fx-background-color: -col-row-odd;
+    -fx-border-color:     transparent transparent -col-border transparent;
+    -fx-border-width:     0 0 1px 0;
+    -fx-padding:          0;
+    -fx-cell-size:        56px;
+}
+
+.table-row-cell:even {
+    -fx-background-color: -col-row-even;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: -col-hover;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -col-selected;
+}
+
+/* last row: no bottom border */
+.table-row-cell:last-visible {
+    -fx-border-color: transparent;
+}
+
+/* ── Individual cells ── */
+.table-cell {
+    -fx-text-fill:   -col-primary-text;
+    -fx-font-size:   13px;
+    -fx-padding:     0 16px;
+    -fx-alignment:   CENTER_LEFT;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: -col-selected-text;
+}
+
+/* ── Column-specific styles ── */
+
+/* ID column – bold white */
+.table-view .col-id .table-cell {
+    -fx-font-weight: bold;
+    -fx-text-fill:   -col-primary-text;
+}
+
+/* Serial Code – muted, smaller */
+.table-view .col-serial .table-cell {
+    -fx-text-fill:  -col-secondary-text;
+    -fx-font-size:  12px;
+}
+
+/* Price – slightly brighter */
+.table-view .col-price .table-cell {
+    -fx-text-fill: #d0d0d0;
+}
+
+/* Volume – muted like serial */
+.table-view .col-volume .table-cell {
+    -fx-text-fill:  -col-secondary-text;
+    -fx-font-size:  12px;
+}
+
+/* Total Stock – bold */
+.table-view .col-stock .table-cell {
+    -fx-font-weight: bold;
+    -fx-text-fill:   -col-primary-text;
+}
+
+/* Warehouses – muted */
+.table-view .col-warehouses .table-cell {
+    -fx-text-fill: -col-secondary-text;
+    -fx-font-size: 12px;
+}
+
+/* ── Scroll bars ── */
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-padding:          2px;
+}
+
+.table-view .scroll-bar:vertical .track,
+.table-view .scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+    -fx-border-color:     transparent;
+}
+
+.table-view .scroll-bar:vertical .thumb,
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #3a3a3a;
+    -fx-background-radius: 4px;
+}
+
+.table-view .scroll-bar:vertical .thumb:hover,
+.table-view .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #505050;
+}
+
+.table-view .scroll-bar .increment-button,
+.table-view .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding:          0;
+    -fx-pref-width:       0;
+    -fx-pref-height:      0;
+}
+
+/* ── Column resize line ── */
+.table-view .column-resize-line {
+    -fx-background-color: -col-accent;
+    -fx-pref-width:       1.5px;
+}
+
+/* ── Sort arrow (if sorting is enabled) ── */
+.table-view .column-header .arrow {
+    -fx-background-color: -col-header-text;
+    -fx-padding:          3px;
+}
+
+/* ── Empty table placeholder ── */
+.table-view .placeholder .label {
+    -fx-text-fill:   -col-secondary-text;
+    -fx-font-size:   13px;
+}

@@ -7,7 +7,7 @@ public record ProdutoResponse(
         String unidade,
         Double preco,
         Double aproxVolume,
-        Integer utilizadorCriadorId
+        Long utilizadorCriadorId
 ) {
 
 }

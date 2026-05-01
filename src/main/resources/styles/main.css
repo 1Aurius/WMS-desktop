@@ -1,3 +1,5 @@
+@import "./table.css";
+
 /* ===== PAGE ===== */
 .page {
     -fx-background-color: #0f0d0d;
@@ -152,6 +154,7 @@
     -fx-border-color: #1f1c1c;
     -fx-border-width: 0 0 1 0;
     -fx-spacing: 2;
+    -fx-content-display: flex-start;
 }
 
 .logo-icon {
@@ -294,6 +297,7 @@
 /* ===== PAGE AREA ===== */
 .page-area {
     -fx-background-color: #0f0d0d;
+    -fx-padding: 12 12 12 12;
 }
 
 .page-scroll {
