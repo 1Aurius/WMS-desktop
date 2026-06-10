@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.wmsdsktp.Controllers.ManageRotaController"
+      spacing="16" styleClass="card" prefWidth="500">
+
+    <padding>
+        <Insets top="24" right="24" bottom="24" left="24"/>
+    </padding>
+
+    <VBox spacing="4">
+        <Label text="Gerir Rota" styleClass="title"/>
+        <Label fx:id="routeIdNameLabel" text="Rota #ID - NOME" styleClass="subtitle"/>
+    </VBox>
+
+    <VBox spacing="12">
+        <VBox spacing="4">
+            <Label text="Estado Atual" styleClass="field-label"/>
+            <ComboBox fx:id="estadoComboBox" maxWidth="Infinity" />
+        </VBox>
+
+        <VBox spacing="4">
+            <Label text="Veículo" styleClass="field-label"/>
+            <ComboBox fx:id="veiculoComboBox" maxWidth="Infinity" promptText="Selecionar Novo Veículo" />
+        </VBox>
+
+        <VBox spacing="4">
+            <Label text="Equipa" styleClass="field-label"/>
+            <ComboBox fx:id="equipaComboBox" maxWidth="Infinity" promptText="Selecionar Nova Equipa" />
+        </VBox>
+        
+        <Separator />
+        
+        <VBox spacing="4">
+            <Label text="Paragens da Rota" styleClass="field-label"/>
+            <ListView fx:id="paragensListView" prefHeight="150" />
+        </VBox>
+    </VBox>
+
+    <HBox spacing="12" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" onAction="#handleCancel"/>
+        <Button text="Atualizar Rota" onAction="#handleSave" styleClass="primary-button"/>
+    </HBox>
+
+</VBox>

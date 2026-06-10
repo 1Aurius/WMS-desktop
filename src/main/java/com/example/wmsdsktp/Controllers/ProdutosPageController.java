@@ -92,4 +92,28 @@ public class ProdutosPageController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void openEditProductModal() {
+        ProdutoResponse selected = productsTable.getSelectionModel().getSelectedItem();
+        if (selected == null) return;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/wmsdsktp/forms/edit-produto-modal.fxml"));
+            Parent root = loader.load();
+
+            EditProdutoModalController controller = loader.getController();
+            controller.initData(selected);
+
+            Stage modal = new Stage();
+            modal.initModality(Modality.APPLICATION_MODAL);
+            modal.setTitle("Edit Product");
+            modal.setScene(new Scene(root));
+            modal.showAndWait();
+
+            loadProdutos(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.wmsdsktp.Controllers.AddTeamMemberController"
+      spacing="15" style="-fx-padding: 20;">
+
+    <Label text="Add Member to Team" styleClass="modal-title"/>
+    
+    <VBox spacing="5">
+        <Label text="Select User:" styleClass="field-label"/>
+        <ComboBox fx:id="cmbUsers" maxWidth="Infinity" promptText="Select a user..."/>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#onCancel" styleClass="btn-secondary"/>
+        <Button text="Add Member" onAction="#onAdd" styleClass="action-btn"/>
+    </HBox>
+
+</VBox>

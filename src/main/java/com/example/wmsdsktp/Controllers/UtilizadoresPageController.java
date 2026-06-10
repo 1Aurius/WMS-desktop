@@ -111,4 +111,28 @@ public class UtilizadoresPageController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void openEditModal() {
+        UtilizadorResponse selected = utilizadoresTable.getSelectionModel().getSelectedItem();
+        if (selected == null) return;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/wmsdsktp/forms/edit-utilizador-modal.fxml"));
+            Parent root = loader.load();
+
+            EditUtilizadorModalController controller = loader.getController();
+            controller.initData(selected);
+
+            Stage modal = new Stage();
+            modal.initModality(Modality.APPLICATION_MODAL);
+            modal.setTitle("Editar Permissões");
+            modal.setScene(new Scene(root));
+            modal.showAndWait();
+
+            load();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

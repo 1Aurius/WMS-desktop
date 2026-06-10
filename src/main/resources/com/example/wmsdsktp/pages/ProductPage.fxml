@@ -26,6 +26,7 @@
         <Button text="Apply" onAction="#onApplyFilters"/>
         <Button text="Clear" onAction="#onClearFilters"/>
         <Button text="New Product" onAction="#openCreateNewProductModal"/>
+        <Button text="Edit Selected" onAction="#openEditProductModal"/>
     </HBox>
 
     <Label fx:id="resultCountLabel" text="0 result(s)" styleClass="field-label"/>

@@ -42,6 +42,26 @@
                     onAction="#onNavigate" userData="requisition">
                 <graphic><Label text="🏷" styleClass="nav-icon"/></graphic>
             </Button>
+            
+            <Button fx:id="navWarehouses" text="Warehouses" styleClass="nav-btn"
+                    onAction="#onNavigate" userData="warehouses">
+                <graphic><Label text="🏢" styleClass="nav-icon"/></graphic>
+            </Button>
+            
+            <Button fx:id="navVehicles" text="Fleet Vehicles" styleClass="nav-btn"
+                    onAction="#onNavigate" userData="vehicles">
+                <graphic><Label text="🚚" styleClass="nav-icon"/></graphic>
+            </Button>
+            
+            <Button fx:id="navRoutes" text="Routes" styleClass="nav-btn"
+                    onAction="#onNavigate" userData="routes">
+                <graphic><Label text="🗺" styleClass="nav-icon"/></graphic>
+            </Button>
+            
+            <Button fx:id="navTeams" text="Teams" styleClass="nav-btn"
+                    onAction="#onNavigate" userData="teams">
+                <graphic><Label text="👥" styleClass="nav-icon"/></graphic>
+            </Button>
 
             <Label text="User Management" styleClass="nav-section-label"/>
             <Button fx:id="navUsers" text="Users" styleClass="nav-btn"

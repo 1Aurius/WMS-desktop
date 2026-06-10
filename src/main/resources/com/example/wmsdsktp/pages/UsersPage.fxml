@@ -26,6 +26,7 @@
         <Button text="Aplicar" onAction="#onApplyFilters"/>
         <Button text="Limpar" onAction="#onClearFilters"/>
         <Button text="Novo Utilizador" onAction="#openCreateModal"/>
+        <Button text="Editar Permissões" onAction="#openEditModal"/>
     </HBox>
 
     <Label fx:id="resultCountLabel" text="0 resultado(s)" styleClass="field-label"/>

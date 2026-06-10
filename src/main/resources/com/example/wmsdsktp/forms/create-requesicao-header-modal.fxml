@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.wmsdsktp.Controllers.CreateRequesicaoHeaderController"
+      spacing="16" prefWidth="400" style="-fx-background-color: white; -fx-padding: 24;">
+
+    <Label text="Nova Requisição (Cabeçalho)" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <VBox spacing="8">
+        <Label text="Descrição / Motivo" style="-fx-font-weight: bold; -fx-text-fill: #4b5563;"/>
+        <TextArea fx:id="descricaoField" promptText="Escreva o motivo da requisição..." prefRowCount="3"/>
+    </VBox>
+
+    <HBox spacing="12" alignment="CENTER_RIGHT" style="-fx-padding: 16 0 0 0;">
+        <Button text="Cancelar" onAction="#handleCancel"
+                style="-fx-background-color: transparent; -fx-text-fill: #4b5563; -fx-cursor: hand;"/>
+        <Button text="Guardar" onAction="#handleSave"
+                style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 8 16;"/>
+    </HBox>
+</VBox>

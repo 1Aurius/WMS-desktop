@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.wmsdsktp.Controllers.CreateVeiculoController"
+      spacing="16" prefWidth="400" style="-fx-background-color: white; -fx-padding: 24;">
+
+    <Label text="Novo Veículo" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <VBox spacing="8">
+        <Label text="Matrícula" style="-fx-font-weight: bold; -fx-text-fill: #4b5563;"/>
+        <TextField fx:id="matriculaField" promptText="Ex: AA-00-AA"/>
+    </VBox>
+
+    <VBox spacing="8">
+        <Label text="Ano" style="-fx-font-weight: bold; -fx-text-fill: #4b5563;"/>
+        <TextField fx:id="anoField" promptText="Ex: 2023"/>
+    </VBox>
+
+    <VBox spacing="8">
+        <Label text="Volume Aproximado (m3)" style="-fx-font-weight: bold; -fx-text-fill: #4b5563;"/>
+        <TextField fx:id="volumeField" promptText="Ex: 15.5"/>
+    </VBox>
+
+    <VBox spacing="8">
+        <Label text="Posto" style="-fx-font-weight: bold; -fx-text-fill: #4b5563;"/>
+        <ComboBox fx:id="postoComboBox" prefWidth="Infinity" promptText="Selecione o posto..."/>
+    </VBox>
+
+    <HBox spacing="12" alignment="CENTER_RIGHT" style="-fx-padding: 16 0 0 0;">
+        <Button text="Cancelar" onAction="#handleCancel"
+                style="-fx-background-color: transparent; -fx-text-fill: #4b5563; -fx-cursor: hand;"/>
+        <Button text="Guardar" onAction="#handleSave"
+                style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 8 16;"/>
+    </HBox>
+</VBox>

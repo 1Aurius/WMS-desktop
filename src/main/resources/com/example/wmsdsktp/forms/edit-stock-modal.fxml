@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12" prefWidth="350" style="-fx-padding: 20;"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.wmsdsktp.Controllers.EditStockModalController" stylesheets="">
+
+    <Label text="Edit Stock" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+    <Label text="Product Name"/>
+    <ComboBox fx:id="produtoComboBox" prefWidth="200" disable="true"/>
+
+    <Label text="Quantity"/>
+    <TextField fx:id="quantityField"/>
+
+    <Label text="Posto"/>
+    <ComboBox fx:id="postoComboBox" prefWidth="200" disable="true"/>
+
+    <HBox spacing="10">
+        <Button text="Save" onAction="#handleSave"/>
+        <Button text="Cancel" onAction="#handleCancel"/>
+    </HBox>
+
+</VBox>

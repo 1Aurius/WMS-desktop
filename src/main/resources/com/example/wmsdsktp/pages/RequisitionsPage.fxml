@@ -16,12 +16,14 @@
     </padding>
 
     <VBox spacing="4">
-        <Label text="Requisições" styleClass="title"/>
-        <Label text="Gerir pedidos de transferência de stock" styleClass="subtitle"/>
+        <Label text="Requisições de Stock (Cabeçalhos)" styleClass="title"/>
+        <Label text="Gerir pedidos e aprovações" styleClass="subtitle"/>
     </VBox>
 
     <HBox spacing="8">
         <Button text="Nova Requisição" onAction="#openCreateModal"/>
+        <Button fx:id="btnAprovar" text="Aprovar Selecionada" onAction="#approveSelected" disable="true"/>
+        <Button fx:id="btnRejeitar" text="Rejeitar Selecionada" onAction="#rejectSelected" disable="true"/>
     </HBox>
 
     <Label fx:id="resultCountLabel" text="0 resultado(s)" styleClass="field-label"/>
@@ -29,11 +31,12 @@
     <TableView fx:id="requisicaoTable" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn fx:id="idCol" text="Id" prefWidth="60"/>
-            <TableColumn fx:id="requesicaoStockIdCol" text="Requisição Stock Id" prefWidth="150"/>
-            <TableColumn fx:id="stockIdCol" text="Stock Id" prefWidth="100"/>
-            <TableColumn fx:id="productNameCol" text="Produto" prefWidth="200"/>
-            <TableColumn fx:id="postoDesignacaoCol" text="Posto" prefWidth="200"/>
-            <TableColumn fx:id="quantCol" text="Quantidade" prefWidth="100"/>
+            <TableColumn fx:id="dhRegistoCol" text="Data Registo" prefWidth="150"/>
+            <TableColumn fx:id="estadoCol" text="Estado" prefWidth="100"/>
+            <TableColumn fx:id="descricaoCol" text="Descrição" prefWidth="250"/>
+            <TableColumn fx:id="criadorCol" text="Criador" prefWidth="120"/>
+            <TableColumn fx:id="validadorCol" text="Validador" prefWidth="120"/>
+            <TableColumn fx:id="dhValidacaoCol" text="Data Validação" prefWidth="150"/>
         </columns>
     </TableView>
 </VBox>

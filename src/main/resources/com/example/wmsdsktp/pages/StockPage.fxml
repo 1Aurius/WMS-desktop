@@ -33,6 +33,7 @@
         <Button text="Clear" onAction="#onClearFilters"/>
 
         <Button text="Register new stock" onAction="#openCreateNewStockModal"/>
+        <Button text="Edit Selected" onAction="#openEditStockModal"/>
     </HBox>
 
     <Label fx:id="resultCountLabel" text="0 result(s)" styleClass="field-label"/>

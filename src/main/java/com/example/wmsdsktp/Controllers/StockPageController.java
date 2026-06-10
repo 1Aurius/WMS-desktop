@@ -128,4 +128,28 @@ public class StockPageController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void openEditStockModal() {
+        StockProductResponse selected = productsTable.getSelectionModel().getSelectedItem();
+        if (selected == null) return;
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/wmsdsktp/forms/edit-stock-modal.fxml"));
+            Parent root = loader.load();
+
+            EditStockModalController controller = loader.getController();
+            controller.initData(selected);
+
+            Stage modal = new Stage();
+            modal.initModality(Modality.APPLICATION_MODAL);
+            modal.setTitle("Edit Stock");
+            modal.setScene(new Scene(root));
+            modal.showAndWait();
+
+            loadStock();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

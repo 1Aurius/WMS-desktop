@@ -18,6 +18,10 @@ public class SidebarController extends VBox {
     @FXML private Button navProduct;
     @FXML private Button navRequisitions;
     @FXML private Button navUsers;
+    @FXML private Button navWarehouses;
+    @FXML private Button navVehicles;
+    @FXML private Button navRoutes;
+    @FXML private Button navTeams;
 
     public void onNavigate(ActionEvent actionEvent) {
         if (!(actionEvent.getSource() instanceof Button button)) {
@@ -53,6 +57,22 @@ public class SidebarController extends VBox {
                 dashboardController.loadPage("/com/example/wmsdsktp/pages/UsersPage.fxml");
                 navUsers.getStyleClass().add("nav-active");
             }
+            case "warehouses" -> {
+                dashboardController.loadPage("/com/example/wmsdsktp/pages/WarehousesPage.fxml");
+                navWarehouses.getStyleClass().add("nav-active");
+            }
+            case "vehicles" -> {
+                dashboardController.loadPage("/com/example/wmsdsktp/pages/VehiclesPage.fxml");
+                navVehicles.getStyleClass().add("nav-active");
+            }
+            case "routes" -> {
+                dashboardController.loadPage("/com/example/wmsdsktp/pages/RoutesPage.fxml");
+                if (navRoutes != null) navRoutes.getStyleClass().add("nav-active");
+            }
+            case "teams" -> {
+                dashboardController.loadPage("/com/example/wmsdsktp/pages/TeamsPage.fxml");
+                if (navTeams != null) navTeams.getStyleClass().add("nav-active");
+            }
             default -> {
                 // tbdn
             }
@@ -78,6 +98,10 @@ public class SidebarController extends VBox {
         navProduct.getStyleClass().remove("nav-active");
         navUsers.getStyleClass().remove("nav-active");
         navRequisitions.getStyleClass().remove("nav-active");
+        if (navWarehouses != null) navWarehouses.getStyleClass().remove("nav-active");
+        if (navVehicles != null) navVehicles.getStyleClass().remove("nav-active");
+        if (navRoutes != null) navRoutes.getStyleClass().remove("nav-active");
+        if (navTeams != null) navTeams.getStyleClass().remove("nav-active");
     }
 
 

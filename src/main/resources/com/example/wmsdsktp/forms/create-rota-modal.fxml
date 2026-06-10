@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.wmsdsktp.Controllers.CreateRotaController"
+      spacing="16" prefWidth="400" style="-fx-background-color: white; -fx-padding: 24;">
+
+    <Label text="Nova Rota" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <VBox spacing="8">
+        <Label text="Nome" style="-fx-font-weight: bold; -fx-text-fill: #4b5563;"/>
+        <TextField fx:id="nomeField" promptText="Ex: Rota Sul"/>
+    </VBox>
+
+    <VBox spacing="8">
+        <Label text="Veículo" style="-fx-font-weight: bold; -fx-text-fill: #4b5563;"/>
+        <ComboBox fx:id="veiculoComboBox" prefWidth="Infinity"/>
+    </VBox>
+
+    <VBox spacing="8">
+        <Label text="Data Prevista" style="-fx-font-weight: bold; -fx-text-fill: #4b5563;"/>
+        <DatePicker fx:id="dataDatePicker" prefWidth="Infinity" promptText="Selecione a data da rota..."/>
+    </VBox>
+
+    <VBox spacing="8">
+        <Label text="Equipa" style="-fx-font-weight: bold; -fx-text-fill: #4b5563;"/>
+        <ComboBox fx:id="equipaComboBox" prefWidth="Infinity" promptText="Selecione a equipa..."/>
+    </VBox>
+
+    <VBox spacing="8" VBox.vgrow="ALWAYS">
+        <Label text="Armazéns / Locais a Visitar" style="-fx-font-weight: bold; -fx-text-fill: #4b5563;"/>
+        <ListView fx:id="postosListView" prefHeight="100"/>
+        <Label text="* Segure CTRL/CMD para selecionar múltiplos locais" style="-fx-font-size: 11px; -fx-text-fill: #9ca3af;"/>
+    </VBox>
+
+    <HBox spacing="12" alignment="CENTER_RIGHT" style="-fx-padding: 16 0 0 0;">
+        <Button text="Cancelar" onAction="#handleCancel"
+                style="-fx-background-color: transparent; -fx-text-fill: #4b5563; -fx-cursor: hand;"/>
+        <Button text="Guardar" onAction="#handleSave"
+                style="-fx-background-color: #3b82f6; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 8 16;"/>
+    </HBox>
+</VBox>
